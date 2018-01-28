@@ -1,0 +1,12 @@
+{
+  "name": "gactions",
+  "main": "index.js",
+  "scripts": {
+    "update": "node index.js update",
+    "test": "node index.js test"
+  },
+  "private": true,
+  "dependencies": {
+    "fs": "0.0.1-security"
+  }
+}
