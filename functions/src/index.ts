@@ -5,7 +5,8 @@ import * as admin from 'firebase-admin';
 import {ActionsSdkApp} from 'actions-on-google';
 
 const NO_INPUTS = [
-  "もう一度言ってください"
+  "もう一度言っていただけますか",
+  "何か申し付けください"
 ];
 
 admin.initializeApp(functions.config().firebase);
@@ -14,18 +15,18 @@ export const GActionsGateway = functions.https.onRequest((request, response) => 
   const app: ActionsSdkApp = new ActionsSdkApp({request, response});
 
   const mainIntent = (_app: ActionsSdkApp) => {
-    const inputPrompt = _app.buildInputPrompt(false, "ようこそ", NO_INPUTS);
+    const inputPrompt = _app.buildInputPrompt(false, "なんなりと", NO_INPUTS);
     _app.ask(inputPrompt);
   };
 
   const rawIntent = (_app: ActionsSdkApp) => {
     const phrase: string = _app.getRawInput();
-    if (phrase === "バイバイ") {
-      _app.tell("バイバイ");
+    if (phrase === "結構") {
+      _app.tell("失礼します");
       return;
     }
 
-    const inputPrompt = _app.buildInputPrompt(false, phrase + "を行います");
+    const inputPrompt = _app.buildInputPrompt(false, phrase + "ですね。かしこまりました", NO_INPUTS);
     _app.ask(inputPrompt);
 
     (async () => {
