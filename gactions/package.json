@@ -2,11 +2,20 @@
   "name": "gactions",
   "main": "index.js",
   "scripts": {
+    "lint": "tslint -p tslint.json",
+    "build": "tsc",
     "update": "node index.js update",
     "test": "node index.js test"
   },
-  "private": true,
   "dependencies": {
-    "fs": "0.0.1-security"
-  }
+    "fs": "0.0.1-security",
+    "node-cron": "^1.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^9.4.0",
+    "@types/node-cron": "^1.2.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.5.3"
+  },
+  "private": true
 }
