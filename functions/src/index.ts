@@ -2,14 +2,15 @@
 
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
+
+admin.initializeApp(functions.config().firebase);
+
 import {ActionsSdkApp} from 'actions-on-google';
 
 const NO_INPUTS = [
   "もう一度言っていただけますか",
   "何か申し付けください"
 ];
-
-admin.initializeApp(functions.config().firebase);
 
 export const GActionsGateway = functions.https.onRequest((request, response) => {
   const app: ActionsSdkApp = new ActionsSdkApp({request, response});
