@@ -27,7 +27,7 @@ export const GActionsGateway = functions.https.onRequest((request, response) => 
       return;
     }
 
-    const inputPrompt = _app.buildInputPrompt(false, phrase + "ですね。かしこまりました", NO_INPUTS);
+    const inputPrompt = _app.buildInputPrompt(false, "はい", NO_INPUTS);
     _app.ask(inputPrompt);
 
     (async () => {
